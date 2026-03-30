@@ -4,7 +4,7 @@ App React para controle de gastos, receitas e metas. Deploy no Vercel, dados sal
 
 ---
 
-## Setup em 5 passos
+## Setup em 4 passos
 
 ### 1. Cria dois repos no GitHub
 
