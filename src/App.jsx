@@ -29,7 +29,8 @@ async function ghFetch() {
   if(r.status===404) return {data:{transactions:[],goals:[]},sha:null};
   if(!r.ok) throw new Error(`GitHub ${r.status}`);
   const j = await r.json();
-  return {data:JSON.parse(atob(j.content.replace(/\n/g,""))),sha:j.sha};
+  const decoded = decodeURIComponent(escape(atob(j.content.replace(/\n/g,""))));
+  return {data:JSON.parse(decoded),sha:j.sha};
 }
 
 async function ghSave(data,sha) {
@@ -100,7 +101,7 @@ Gere um relatório com EXATAMENTE estas 4 seções usando este formato markdown:
 
 Seja direto, use números reais dos dados, fale de forma casual e amigável. Máximo 400 palavras no total.`;
 
-  const res = await fetch("https://api.anthropic.com/v1/messages", {
+  const res = await fetch("/api/analyze", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
