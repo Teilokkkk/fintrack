@@ -35,7 +35,7 @@ No repo `fintrack-data`, faça commit do arquivo `data.json` com conteúdo:
    - `VITE_GITHUB_REPO` = `fintrack-data`
 3. Faz o deploy
 
-### 5. Teste local (opcional)
+### 4. Teste local (opcional)
 
 ```bash
 cp .env.example .env.local
